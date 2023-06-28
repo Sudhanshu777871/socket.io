@@ -9,7 +9,11 @@ app.get("/",(req, res)=>{
 })
 
 user=0;
+
+// CODE FOR USING NAMESPACES
+// const ns = io.of("/admin");
 // code for Socket.io
+// ns.on("connection",(socket)=>{ IF WE USE NAMESPACES
 io.on("connection",(socket)=>{
 console.log("Users Is connected");
 
