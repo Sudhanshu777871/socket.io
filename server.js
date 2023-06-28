@@ -12,9 +12,16 @@ app.get("/",(req, res)=>{
 io.on("connection",(socket)=>{
 console.log("Users Is connected");
 
+// CODE FOR SEND DEFAULT MESSAGE TO CLIENT SIDE
+// socket.send("This is default message from server...");
 
+// CODE FOR SEND CUSTOME MESSAGE TO CLIENT SIDE
+// socket.emit("customeMsg","This is Custome message from server...");
 
-
+// CODE FOR RECEVING MESSAGE FROM CLEINT
+socket.on("clientMsg", (data)=>{
+console.log(data);
+});
 
 // code for diconnect user
 socket.on("disconnect",()=>{
