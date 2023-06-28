@@ -1,0 +1,8 @@
+///// IMPORTANT POINTS TO REMEMBER ////////////////////////////////
+
+1. in broaddcasting to all user must be "" sockets "" is used not socket like - io.sockets.emit()
+2. in listen http port is ued not app port
+
+
+
+KEEP GROWING :)
