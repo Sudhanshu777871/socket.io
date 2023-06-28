@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.0/socket.io.js" integrity="sha512-+sXUwEYakGznuXubXLO/7LWSAPcm+U3NxMJaSu3S5OcvruAAAzaC50Uh4TW9KWj0hA6vfPAjB7E1uuIXgn9vmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
-    <h1>Socket.io</h1>
+    <h1 id="demo">Socket.io</h1>
     <script>
       var socket = io();
 // CODE FOR RECEVING DEFAULT MESSING FROM SERVER
@@ -20,9 +20,14 @@
 // console.log(data);
 // })
 
+
 // CODE FOR RECEVING CUSTOME MESSING FROM SERVER
 // socket.emit("clientMsg","New Message From Client")
 
+// CODE FOR RECEVING BROADCASTING MESSING FROM SERVER
+socket.on("connectedUsers",(data)=>{
+document.getElementById("demo").innerHTML =data;
+})
     </script>
   </body>
 </html>

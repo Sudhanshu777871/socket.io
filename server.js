@@ -8,6 +8,7 @@ app.get("/",(req, res)=>{
     res.sendFile(complete_Path);
 })
 
+user=0;
 // code for Socket.io
 io.on("connection",(socket)=>{
 console.log("Users Is connected");
@@ -19,12 +20,22 @@ console.log("Users Is connected");
 // socket.emit("customeMsg","This is Custome message from server...");
 
 // CODE FOR RECEVING MESSAGE FROM CLEINT
-socket.on("clientMsg", (data)=>{
-console.log(data);
-});
+// socket.on("clientMsg", (data)=>{
+// console.log(data);
+// });
+
+
+// CODE FOR SENDING MESSAGE TO EVREYONE (BROADDCASTING)
+user++;
+socket.emit("connectedUsers","Welcome To Chat App");
+socket.broadcast.emit("connectedUsers",user)
+// io.sockets.emit("connectedUsers", user)
 
 // code for diconnect user
 socket.on("disconnect",()=>{
+    user--;
+    // io.sockets.emit("connectedUsers",user);
+    socket.broadcast.emit("connectedUsers",user);
     console.log("User Is Disconnected..");
 })
 })
